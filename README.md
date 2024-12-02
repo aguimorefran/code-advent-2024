@@ -1,1 +1,3 @@
-# code-advent-2024
+# Code Advent 2024
+
+Doing the Code Avent for the first time. Using it to learn Go.
