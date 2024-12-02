@@ -1,24 +1,23 @@
 package main
 
 import (
-	"fmt"
 	"bufio"
+	"fmt"
+	"log"
+	"math"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
-	"sort"
-	"math"
 )
 
 func main() {
-	input_file := "input.txt"
+	inputFile := "input.txt"
 
-	file, err := os.Open(input_file)
+	file, err := os.Open(inputFile)
 	if err != nil {
-		fmt.Println("Error reading file:", err)
-		return
+		log.Fatal("Error reading file:", err)
 	}
-
 	defer file.Close()
 
 	var list1, list2 []int
@@ -38,8 +37,7 @@ func main() {
 	}
 
 	if err := scanner.Err(); err != nil {
-		fmt.Println("Error reading file:", err)
-		return
+		log.Fatal("Error reading file:", err)
 	}
 
 	// Sort both lists
@@ -48,10 +46,8 @@ func main() {
 
 	distance := 0
 	for i := 0; i < len(list1); i++ {
-	    smallest1 := list1[i]
-	    smallest2 := list2[i]
-	    distance += int(math.Abs(float64(smallest1 - smallest2)))
+	    distance += int(math.Abs(float64(list1[i] - list2[i])))
 	}
 
-	print(distance)
+	fmt.Println(distance)
 }
